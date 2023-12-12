@@ -1,0 +1,48 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Editor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1 class="heading">MutexLock</h1>
+    <div id="editor-container">
+        <div class="flex">
+            <div class="left">
+                <textarea id="editor" readonly></textarea>
+            </div>
+            <div class="right">
+                <button class="request" id="editButton">Request Editing</button>
+                <button class="release" id="releaseButton">Release Editing</button>
+                <h2 class="Rules">Rules</h2>
+                <ul class="list">
+                    <li>Request first to start editing</li>
+                    <li>Once done editing please release</li>
+                </ul>
+                <h2 class="Rules">Working principle</h2>
+                <ul class="list">
+                    <li>Flask-SocketIO manages WebSocket connections.</li>
+                    <li>Client requests editing with Socket.IO events.</li>
+                    <li>Server updates editing status.</li>
+                    <li>JavaScript enables/disables editing based on status.</li>
+                </ul>
+                <h2 class="Rules">Advantages</h2>
+                <ul class="list">
+                    <li>Bidirectional Communication: Enables real-time communication between the server and clients.</li>
+                    <li>Efficient Updates: Reduces the need for constant polling by providing efficient, event-driven updates.</li>
+                    <li>Scalability: Facilitates scalable applications with support for multiple simultaneous connections.</li>
+                    <li>Enhanced User Experience: Enables interactive features, improving user experience in web applications.</li>
+                    <li>Cross-browser Compatibility: Ensures consistent real-time functionality across various web browsers.</li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
