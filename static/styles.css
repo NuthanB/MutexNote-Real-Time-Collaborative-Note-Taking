@@ -47,6 +47,6 @@ body{
 .Rules{
     color: aliceblue;
 }
-.list{
+.list, #timer{
     color: antiquewhite;
 }
